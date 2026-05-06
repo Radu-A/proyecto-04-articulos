@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/styles/style.css}" rel="stylesheet">
+<title th:text="${titulo}"></title>
+</head>
+<body>
+	<main>
+		<a th:href="@{'/articulos/listado'}">← Volver</a>
+		<h1 th:text="${cabecera} + ': ' + ${articulo.nombre}"></h1>
+		<ul>
+			<li><p>
+					Id: <span th:text="${articulo.id}"></span>
+				</p></li>
+			<li><p>
+					Nombre: <span th:text="${articulo.nombre}"></span>
+				</p></li>
+			<li><p>
+					Precio: <span th:text="${articulo.precio}"></span>
+				</p></li>
+			<li><p>
+					Stock: <span th:text="${articulo.stock}"></span>
+				</p></li>
+		</ul>
+	</main>
+</body>
+</html>

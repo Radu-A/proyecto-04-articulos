@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
+</head>
+<body>
+	<h1 th:text="${cabecera}"></h1>
+	<div th:if="${articulos != null && articulos.size() != 0}">
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>NOMBRE</th>
+					<th>PRECIO</th>
+					<th>STOCK</th>
+					<th colspan="4">ACCIONES</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="articulo : ${articulos}">
+					<td th:text="${articulo.id}"></td>
+					<td th:text="${articulo.nombre}"></td>
+					<td th:text="${articulo.precio}"></td>
+					<td th:text="${articulo.stock}"></td>
+					<td><a th:href="@{'/articulos/detalles/' + ${articulo.id}}"
+						th:text="${accion1}"></a></td>
+					<td><a th:href="@{'/articulos/borrar/' + ${articulo.id}}"
+						th:text="${accion2}"></a></td>
+					<td><a th:href="@{'/articulos/form/' + ${articulo.id}}"
+						th:text="${accion3}"></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
